@@ -9,7 +9,7 @@ export class UsersService {
   users;
   constructor(private http: HttpClient) {}
   getUsers() {
-    return this.http.get('https://randomuser.me/api/?results=50')
+    return this.http.get('https://randomuser.me/api/?results=200')
     .pipe(map( p => p[`results`] ),
     map(pk => {
       return {

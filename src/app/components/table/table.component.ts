@@ -17,6 +17,9 @@ export class TableComponent implements OnInit {
   users: Usuario[] = [];
   dataSource = new MatTableDataSource<Usuario>();
   cols: string[] = ['id', 'name', 'location', 'gender', 'email', 'age'];
+  indicePagina = [3, 5, 10];
+  usersPorPagina = 5;
+  totalUsers: number;
   @ViewChild(MatPaginator, {static: false}) paginacion: MatPaginator;
   constructor(private userS: UsersService) { }
   ngOnInit() {
@@ -26,7 +29,9 @@ export class TableComponent implements OnInit {
     this.userS.getUsers().subscribe(res => {
       this.users = res.users;
       this.dataSource.data = this.users;
-      // console.log('th', this.users);
+      this.totalUsers = this.users.length;
+      this.dataSource.paginator = this.paginacion;
+      this.dataSource.paginator._intl.itemsPerPageLabel = 'Usuarios por Pagina';
     });
   }
 }

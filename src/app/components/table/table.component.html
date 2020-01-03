@@ -51,4 +51,6 @@
         <mat-header-row *matHeaderRowDef="cols"></mat-header-row>
         <mat-row *matRowDef="let row; columns: cols"></mat-row>
     </table>
+
+    <mat-paginator #pagi [pageSizeOptions]="indicePagina" [length]="totalUsers" [pageSize]="usersPorPagina"></mat-paginator>
 </div>
