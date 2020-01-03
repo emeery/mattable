@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    <span>
+    <a routerLink="/"> || </a>
+  </span>
+    <span class="spacer"></span>
+    <ul>
+        <li *ngIf="userAut">
+            <a mat-button routerLink="/crear" routerLinkActive="mat-accent">
+                <mat-icon svgIcon="icono-plus"></mat-icon>
+            </a>
+        </li>
+        <li *ngIf="!userAut">
+            <a mat-button routerLink="/login" routerLinkActive="mat-accent">
+      L
+      </a>
+        </li>
+        <li *ngIf="!userAut">
+            <a mat-button routerLink="/signup" routerLinkActive="mat-accent">
+        S
+        </a>
+        </li>
+        <li></li>
+        <li *ngIf="userAut">
+            <a (click)="onLogout()" mat-button routerLinkActive="mat-accent">
+                <mat-icon svgIcon="icono-out"></mat-icon>
+            </a>
+
+        </li>
+    </ul>
+</mat-toolbar>
