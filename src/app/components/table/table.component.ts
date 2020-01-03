@@ -2,11 +2,13 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatDialog, PageEvent} from '@angular/material';
 import { UsersService } from 'src/app/services/users.service';
 interface Usuario {
+  id: string;
   name: string;
   gender: number;
   location: number;
   email: string;
   age: number;
+  image: string;
 }
 @Component({
   selector: 'app-table',
@@ -16,7 +18,7 @@ interface Usuario {
 export class TableComponent implements OnInit {
   users: Usuario[] = [];
   dataSource = new MatTableDataSource<Usuario>();
-  cols: string[] = ['id', 'name', 'location', 'gender', 'email', 'age'];
+  cols: string[] = ['id', 'name', 'location', 'gender', 'email', 'image', 'age' ];
   indicePagina = [3, 5, 10];
   usersPorPagina = 5;
   totalUsers: number;

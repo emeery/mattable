@@ -13,14 +13,16 @@ export class UsersService {
     .pipe(map( p => p[`results`] ),
     map(pk => {
       return {
-        users: pk.map( pok => {
-          // console.log('pok', pok.dob.age);
+        users: pk.map( (pok, i) => {
+          // console.log('pok', pok.picture.thumbnail);
           return {
+            id: ++i,
             name: pok.name.first + ' ' + pok.name.last,
             gender: pok.gender,
             location : pok.location.country,
             email: pok.email,
             age: pok.dob.age,
+            image:  pok.picture.thumbnail
           };
         })
       };
