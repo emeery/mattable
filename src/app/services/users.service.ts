@@ -14,7 +14,6 @@ export class UsersService {
     map(pk => {
       return {
         users: pk.map( (pok, i) => {
-          // console.log('pok', pok.picture.thumbnail);
           return {
             id: ++i,
             name: pok.name.first + ' ' + pok.name.last,
